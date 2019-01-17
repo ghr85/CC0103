@@ -121,28 +121,11 @@ users = {
         :species => "snake"
       }
     ]
-  },
-  "Renfrew" => {
-    :twitter => "Fraser",
-    :lottery_numbers => [4,9,15,13,10,22],
-    :home_town => "Brigadoon",
-    :pets => [
-      {
-        :name => "Pebs",
-        :species => "Dog"
-      },
-      {
-        :name => "Amber",
-        :species => "Dog"
-      },
-      {
-        :name => "Lil",
-        :species => "Dog"
-      }
-    ]
   }
 
-}
+  }
+
+
 
 # Complete these tasks:
 
@@ -162,12 +145,20 @@ p "#5. Get the smallest of Erik's lottery numbers"
 p users["Erik"][:lottery_numbers].sort[0]
 
 p "#6. Return an array of Avril's lottery numbers that are even"
-
+# Incorrect this should be an array specificaly.
+# for numbers in users["Erik"][:lottery_numbers].sort
+#   if numbers % 2 == 0
+#     puts numbers
+#   end
+# end
+#correct answer uses same loop but puts to array rather than screen
+arr_lottery = []
 for numbers in users["Erik"][:lottery_numbers].sort
   if numbers % 2 == 0
-    puts numbers
+    arr_lottery << numbers
   end
 end
+p arr_lottery
 
 p "#7. Erik is one lottery number short! Add the number `7` to be included in his lottery numbers"
 
@@ -183,8 +174,32 @@ puts users["Erik"][:pets] << {
   :name => "Fluffy",
   :type => "Dog"
 }
+
+#incorrect, new user should have been input via command rather than
 p "10. Add another person to the users hash"
-puts users["Renfrew"] # intense slow thoughts required to build this one
+# puts users["Renfrew"] # intense slow thoughts required to build this one
+#correct answer.
+users["Renfrew"] = {
+  :twitter => "Fraser",
+  :lottery_numbers => [4,9,15,13,10,22],
+  :home_town => "Brigadoon",
+  :pets => [
+    {
+      :name => "Pebs",
+      :species => "Dog"
+    },
+    {
+      :name => "Amber",
+      :species => "Dog"
+    },
+    {
+      :name => "Lil",
+      :species => "Dog"
+    }
+  ]
+}
+    puts users["Renfrew"]
+
 #
 # Exercise C
 #
